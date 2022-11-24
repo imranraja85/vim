@@ -19,6 +19,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'kien/ctrlp.vim'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -136,3 +137,12 @@ autocmd InsertLeave *.md call MatchTechWordsToAvoid()
 autocmd BufWinLeave *.md call clearmatches()
 
 runtime macros/matchit.vim
+set autowrite
+
+" Go helpers
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
